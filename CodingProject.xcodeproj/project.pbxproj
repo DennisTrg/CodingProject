@@ -12,6 +12,7 @@
 		0DA58D5229CC06D600AFFB8A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA58D5129CC06D600AFFB8A /* HomeViewController.swift */; };
 		0DA58D5729CC06D800AFFB8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DA58D5629CC06D800AFFB8A /* Assets.xcassets */; };
 		0DA58D5A29CC06D800AFFB8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA58D5829CC06D800AFFB8A /* LaunchScreen.storyboard */; };
+		0DA58D6329CC347B00AFFB8A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA58D6229CC347B00AFFB8A /* HomeViewModel.swift */; };
 		71BDE4E9E07AF1AB117B66A2 /* Pods_CodingProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF798B97169E6399A3661E0E /* Pods_CodingProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		0DA58D5629CC06D800AFFB8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DA58D5929CC06D800AFFB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DA58D5B29CC06D800AFFB8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DA58D6229CC347B00AFFB8A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		24780FA682D597569F73C174 /* Pods-CodingProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingProject.debug.xcconfig"; path = "Target Support Files/Pods-CodingProject/Pods-CodingProject.debug.xcconfig"; sourceTree = "<group>"; };
 		75393BC7754BBA9B3A91D947 /* Pods-CodingProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingProject.release.xcconfig"; path = "Target Support Files/Pods-CodingProject/Pods-CodingProject.release.xcconfig"; sourceTree = "<group>"; };
 		EF798B97169E6399A3661E0E /* Pods_CodingProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodingProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,13 +64,22 @@
 			isa = PBXGroup;
 			children = (
 				0DA58D4D29CC06D600AFFB8A /* AppDelegate.swift */,
+				0DA58D6129CC344B00AFFB8A /* HomeView */,
 				0DA58D4F29CC06D600AFFB8A /* SceneDelegate.swift */,
-				0DA58D5129CC06D600AFFB8A /* HomeViewController.swift */,
 				0DA58D5629CC06D800AFFB8A /* Assets.xcassets */,
 				0DA58D5829CC06D800AFFB8A /* LaunchScreen.storyboard */,
 				0DA58D5B29CC06D800AFFB8A /* Info.plist */,
 			);
 			path = CodingProject;
+			sourceTree = "<group>";
+		};
+		0DA58D6129CC344B00AFFB8A /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				0DA58D5129CC06D600AFFB8A /* HomeViewController.swift */,
+				0DA58D6229CC347B00AFFB8A /* HomeViewModel.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 		18D908302FC11C6C1A1B1B84 /* Frameworks */ = {
@@ -85,7 +96,6 @@
 				24780FA682D597569F73C174 /* Pods-CodingProject.debug.xcconfig */,
 				75393BC7754BBA9B3A91D947 /* Pods-CodingProject.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -206,6 +216,7 @@
 				0DA58D5229CC06D600AFFB8A /* HomeViewController.swift in Sources */,
 				0DA58D4E29CC06D600AFFB8A /* AppDelegate.swift in Sources */,
 				0DA58D5029CC06D600AFFB8A /* SceneDelegate.swift in Sources */,
+				0DA58D6329CC347B00AFFB8A /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
