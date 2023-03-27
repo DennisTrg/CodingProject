@@ -40,8 +40,8 @@ public enum NetworkError: Error, LocalizedError {
 }
 
 protocol APIServiceProtocol {
-//    func fetchApi(url: String, completionHandler: @escaping (Result<[Movie], NetworkError>) -> Void)
     func fetchApi(url: String) async throws -> [Movie]
+    func getImage(imageString: String) async throws -> Data
 }
 
 class APIService {
@@ -52,19 +52,28 @@ class APIService {
 
 extension APIService: APIServiceProtocol {
     func fetchApi(url: String) async throws -> [Movie] {
-        let url = URL(string: url)
-        let request = URLRequest(url: url!)
+        let urlString = URL(string: url)
+        let request = URLRequest(url: urlString!)
         let (data, response) = try await URLSession.shared.data(for: request)
         let fetchedData = try JSONDecoder().decode(MovieResponseModel.self, from: try mapResponse(response: (data,response)))
-        return fetchedData.search
+
+        return fetchedData.search ?? []
     }
-    
-    
+
+    func getImage(imageString: String) async throws -> Data {
+        let imagePath = URL(string: imageString)
+        let request = URLRequest(url: imagePath!)
+        let (data, _) = try await URLSession.shared.data(for: request)
+
+        return data
+    }
+
+
     private func mapResponse(response: (data: Data, response: URLResponse)) throws -> Data {
         guard let httpResponse = response.response as? HTTPURLResponse else {
             return response.data
         }
-        
+
         switch httpResponse.statusCode {
         case 200..<300:
             return response.data
@@ -86,32 +95,4 @@ extension APIService: APIServiceProtocol {
             throw NetworkError.http(httpResponse: httpResponse, data: response.data)
         }
     }
-    
-//    func fetchApi(url: String, completionHandler: @escaping (Result<[Movie], NetworkError>) -> Void) {
-//        let url = URL(string: url)
-//
-//        let task = URLSession.shared.dataTask(with: url!) { data, response, error in
-//            if error != nil {
-//                completionHandler(.failure(.noData))
-//                return
-//            }
-//
-//            guard let data = data else {
-//                let response = response as? HTTPURLResponse
-//                print(NSError(domain: "No Data", code: response?.statusCode ?? -1, userInfo: nil))
-//                completionHandler(.failure(.noData))
-//                return
-//            }
-//            do {
-//                let movieList = try JSONDecoder().decode(MovieResponseModel.self, from: data)
-//                completionHandler(.success(movieList.search))
-//            } catch {
-//                completionHandler(.failure(.noData))
-//                return
-//            }
-//        }
-//        task.resume()
-//    }
-    
-    
 }
